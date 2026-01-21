@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="it"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;title&gt;Classifica MASSA-BANDA&lt;/title&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">body { font-family: Arial, sans-serif; background:#111; color:#fff; text-align:center; }</p>
+<p class="p1">table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; }</p>
+<p class="p1">th, td { border:1px solid #555; padding:8px; }</p>
+<p class="p1">th { background:#222; }</p>
+<p class="p1">input { width:50px; text-align:center; }</p>
+<p class="p1">.finalista { background:#2a7fff; }</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;h1&gt;🎶 MASSA-BANDA 🎶&lt;/h1&gt;</p>
+<p class="p1">&lt;h2&gt;Classifica&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;table&gt;</p>
+<p class="p1">&lt;thead&gt;</p>
+<p class="p1">&lt;tr&gt;</p>
+<p class="p1">&lt;th&gt;Pos&lt;/th&gt;&lt;th&gt;Squadra&lt;/th&gt;</p>
+<p class="p1">&lt;th&gt;P1&lt;/th&gt;&lt;th&gt;P2&lt;/th&gt;&lt;th&gt;P3&lt;/th&gt;&lt;th&gt;P4&lt;/th&gt;</p>
+<p class="p1">&lt;th&gt;Finale&lt;/th&gt;&lt;th&gt;Tot&lt;/th&gt;</p>
+<p class="p1">&lt;/tr&gt;</p>
+<p class="p1">&lt;/thead&gt;</p>
+<p class="p1">&lt;tbody id="body"&gt;&lt;/tbody&gt;</p>
+<p class="p1">&lt;/table&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">let teams=[</p>
+<p class="p1">{name:"Squadra 1",p:[0,0,0,0],f:0},</p>
+<p class="p1">{name:"Squadra 2",p:[0,0,0,0],f:0},</p>
+<p class="p1">{name:"Squadra 3",p:[0,0,0,0],f:0},</p>
+<p class="p1">{name:"Squadra 4",p:[0,0,0,0],f:0},</p>
+<p class="p1">{name:"Squadra 5",p:[0,0,0,0],f:0}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">function draw(){</p>
+<p class="p1">teams.forEach(t=&gt;t.t=t.p.reduce((a,b)=&gt;a+b,0)+t.f);</p>
+<p class="p1">teams.sort((a,b)=&gt;b.t-a.t);</p>
+<p class="p1">const b=document.getElementById("body");</p>
+<p class="p1">b.innerHTML="";</p>
+<p class="p1">teams.forEach((t,i)=&gt;{</p>
+<p class="p1">b.innerHTML+=`</p>
+<p class="p1">&lt;tr class="${i&lt;2?'finalista':''}"&gt;</p>
+<p class="p1">&lt;td&gt;${i+1}&lt;/td&gt;</p>
+<p class="p1">&lt;td contenteditable&gt;${t.name}&lt;/td&gt;</p>
+<p class="p1">${t.p.map((v,j)=&gt;`&lt;td&gt;&lt;input value="${v}" type="number" onchange="teams[${i}].p[${j}]=+this.value;draw()"&gt;&lt;/td&gt;`).join("")}</p>
+<p class="p1">&lt;td&gt;&lt;input value="${t.f}" type="number" onchange="teams[${i}].f=+this.value;draw()"&gt;&lt;/td&gt;</p>
+<p class="p1">&lt;td&gt;&lt;b&gt;${t.t}&lt;/b&gt;&lt;/td&gt;</p>
+<p class="p1">&lt;/tr&gt;`;</p>
+<p class="p1">});</p>
+<p class="p1">}</p>
+<p class="p1">draw();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
